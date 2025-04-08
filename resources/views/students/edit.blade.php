@@ -29,11 +29,11 @@
                             <div class="form-group row mb-3">
                                 <label class="col-sm-2 col-form-label">Giới tính</label>
                                 <div class="col">
-                                    <div class="form-check">
+                                    <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="gender" value="Nam" id="male_gender" {{$edit_student->gender == 'Nam' ? 'checked' : ''}}>
                                         <label class="form-check-label" for="male_gender">Nam</label>
                                     </div>
-                                    <div class="form-check">
+                                    <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="gender" value="Nữ" id="female_gender" {{$edit_student->gender == 'Nữ' ? 'checked' : ''}}>
                                         <label class="form-check-label" for="female_gender">Nữ</label>
                                     </div>
@@ -61,6 +61,29 @@
                                 <label for="student_code" class="col-sm-2 col-form-label">Mã sinh viên</label>
                                 <div class="col">
                                     <input type="number" step="1" class="form-control" id="student_code" name="student_code" maxlength="5" value="{{$edit_student->student_code}}" required>
+                                </div>
+                            </div>
+                            <div class="form-group row mb-3">
+                                <label class="col-sm-2 col-form-label">Sở thích</label>
+                                <div class="col">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="hobby[]" value="Bóng đá">
+                                        <label class="form-check-label" for="">Bóng đá</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="hobby[]" value="Nghe nhạc">
+                                        <label class="form-check-label" for="">Nghe nhạc</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="hobby[]" value="Du lịch">
+                                        <label class="form-check-label" for="">Du lịch</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row mb-3">
+                                <label for="avatar" class="col-sm-2 col-form-label">Ảnh đại diện</label>
+                                <div class="col">
+                                    <input type="file" accept="image/*" class="form-control" id="avatar" name="avatar">
                                 </div>
                             </div>
                             <div class="form-group row mb-3">

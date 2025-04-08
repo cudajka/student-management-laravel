@@ -2,7 +2,7 @@
 @section('title', 'Danh sách sinh viên')
 @section('content')
     <main>
-        <div class="container">
+        <div class="container-fluid">
             <a href="{{route('students.create')}}" class="btn btn-success fw-bold mt-1 mb-1"><i class="fa fa-plus"></i> Thêm sinh viên</a>
             @if(session('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -22,10 +22,11 @@
                             <th>Số điện thoại</th>
                             <th>Email</th>
                             <th>Mã sinh viên</th>
+                            <th>Sở thích</th>
                             <th>Tiểu sử</th>
                             <th>Ảnh đại diện</th>
-                            <th>Ngày tạo</th>
-                            <th>Cập nhật vào</th>
+{{--                            <th>Ngày tạo</th>--}}
+{{--                            <th>Cập nhật vào</th>--}}
                             <th>Hành động</th>
                         </tr>
                     </thead>
@@ -45,10 +46,26 @@
                             <td>{{$value->phone_number}}</td>
                             <td>{{$value->email}}</td>
                             <td>{{$value->student_code}}</td>
+                            <td>
+
+                                @php
+                                    $hobbies = json_decode($value->hobbies);
+                                @endphp
+                                @if(isset($hobbies))
+                                    @foreach($hobbies as $hobby)
+                                        {{$hobby}},
+                                    @endforeach
+                                @else
+                                    <i class="fa fa-ban text-danger"></i>
+                                @endif
+
+                            </td>
                             <td>{{$value->bio}}</td>
-                            <td>{{$value->avatar}}</td>
-                            <td>{{$value->created_at}}</td>
-                            <td>{{$value->updated_at}}</td>
+                            <td>
+                                <img src="{{url('storage/img/avatar/'.$value->avatar)}}" class="img-thumbnail rounded-circle" width="100px" alt="">
+                            </td>
+{{--                            <td>{{$value->created_at}}</td>--}}
+{{--                            <td>{{$value->updated_at}}</td>--}}
                             <td>
                                 <a href=""><i class="fa fa-eye text-success"></i></a>
                                 <a href="{{route('students.edit', ['id'=>$value->id])}}"><i class="fa fa-edit"></i></a>

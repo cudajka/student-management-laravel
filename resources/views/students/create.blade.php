@@ -86,12 +86,6 @@
                                 </div>
                             </div>
                             <div class="form-group row mb-3">
-                                <label for="avatar" class="col-sm-2 col-form-label">Ảnh đại diện</label>
-                                <div class="col">
-                                    <input type="file" accept="image/*" class="form-control" id="avatar" name="avatar">
-                                </div>
-                            </div>
-                            <div class="form-group row mb-3">
                                 <label for="bio" class="col-sm-2 col-form-label">Bio</label>
                                 <div class="col">
                                     <textarea class="form-control" id="bio" name="bio" rows="5"></textarea>
